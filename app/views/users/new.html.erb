@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<% provide(:title, "SIGNUP FOR COOL APP!") %>
+<!-- use of the rails form_for helper -->
+<h1> Fill out the form below to register.</h1>
+<!-- be sure to use the %= command to INSERT the ruby code into the HTML template.-->
+<%= form_for(@user) do |f| %>
+<%= f.label :name %>
+<%= f.text_field :name %>
+
+<%= f.label :email %>
+<%=f.email_field :email%>
+
+
+<%= f.label :password %>
+<%= f.password_field :password %>
+
+<%= f.label :password_confirmation %>
+<%= f.password_field :password_confirmation %>
+
+<%= f.submit "Sign up!" %>
+<% end %>
+
+

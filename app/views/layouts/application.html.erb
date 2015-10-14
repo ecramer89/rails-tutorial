@@ -8,8 +8,10 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  The Contents of this Page:
-  <p>
+  <% debug(params) if Rails.env.development? %>
+  <% flash.each do |key, message| %>
+  <h5><%= "#{key}: #{message}" %></h5>
+  <% end %>
 <%= yield %>
 <p>
 </body>
