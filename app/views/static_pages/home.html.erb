@@ -1,5 +1,36 @@
 <!DOCTYPE html>
 <% provide(:title, "HOME")%>
 <!-- all of the contents of the pages go inside the general yield tag of the layout file, in the body. i.e., I can't override the header that the layout files defines-->
-<head>My title goes here...</head>
-<body>Page with all the comforts of home</body>
+
+<body>
+    <hi>Sample Application</hi>
+<p>Links to:</p>
+<p><ul>
+    <li>
+    <%= link_to "Sign up", signup_url %>
+</li>
+<li>
+    <%= link_to "About the application", about_url %>
+</li>
+<li>
+    <%= link_to "About cats!", cats_url %>
+</li>
+   
+    
+    <!-- only display the link to the all users page to users who have logged in -->
+    <% if logged_in? %>
+   <li>
+      <%= link_to "All of the users", users_url %>
+   </li>
+   
+   <!-- links can specify HTTP verbs other than GET [which I think is the default for link_to]. here we automatically issue  DELETE http request to the linked url-->
+   <li><%= link_to "Log out", logout_path, method: :delete %></li>
+   <% else %> 
+    <li>
+        <%= link_to "Log in", login_url %>
+    </li>
+   <% end %>
+    
+  
+</ul></p>
+</body>

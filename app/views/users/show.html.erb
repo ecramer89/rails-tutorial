@@ -1,3 +1,5 @@
 <% provide(:title, "Page of {#@the_user.name}")%>
 
 This is the page for <%= @the_user.name %>. The user's email is <%= @the_user.email %>
+
+<p><%= link_to "Back to users", users_path %></p>

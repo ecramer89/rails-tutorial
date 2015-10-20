@@ -16,6 +16,7 @@ class UsersController < ApplicationController
     @user=User.new(user_params)
     if @user.save 
       flash[:notice] = "You did it!"
+      log_in @user
       redirect_to user_path(@user)
     else 
       flash[:error] = "You did not do it"
